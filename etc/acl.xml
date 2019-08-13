@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="MyModules_QuickOrder::all" title="My QuickOrder All" translate="title" sortOrder="30" >
+                    <resource id="MyModules_QuickOrder::grid" title="Quick Orders" translate="title" sortOrder="10" >
+
+                        <resource
+                                id="MyModules_QuickOrder::delete_order"
+                                title="Quick Order Delete"
+                                translate="title"
+                                sortOrder="40"
+                        />
+                        <resource
+                                id="MyModules_QuickOrder::editOrder"
+                                title="Quick Order Edit"
+                                translate="title"
+                                sortOrder="40"
+                        />
+
+                    </resource>
+
+                </resource>
+
+                <resource id="MyModules_QuickOrder::allStatus" title="My QuickOrder Status" translate="title" sortOrder="30" >
+                    <resource id="MyModules_QuickOrder::status_grid" title="Quick Orders Status" translate="title" sortOrder="10" >
+
+                        <resource
+                                id="MyModules_QuickOrder::status_delete"
+                                title="Quick Order Status Delete"
+                                translate="title"
+                                sortOrder="40"
+                        />
+                        <resource
+                                id="MyModules_QuickOrder::edit_status"
+                                title="Quick Order Status Edit"
+                                translate="title"
+                                sortOrder="40"
+                        />
+                        <resource
+                                id=" MyModules_QuickOrder::system_config"
+                                title="Default Statu"
+                                translate="title"
+                                sortOrder="40"
+                        />
+                    </resource>
+
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

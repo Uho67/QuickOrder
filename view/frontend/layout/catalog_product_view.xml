@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="quick-order-but"
+                   template="MyModules_QuickOrder::popup/myquickorder.phtml"
+                   after="-">
+                <arguments>
+                    <argument name = "view_model" xsi:type = "object"
+                    >MyModules\QuickOrder\Api\PersonFront\ConfigInterface</argument>
+                </arguments>
+            </block>
+            <block  class="Magento\Framework\View\Element\Template"
+                    name="quick-order-button"
+                    template="MyModules_QuickOrder::popup/form.phtml"
+                    after="-"
+            />
+        </referenceContainer>
+    </body>
+</page>
+

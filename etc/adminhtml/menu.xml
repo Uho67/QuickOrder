@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+                id="MyModules_QuickOrder::all"
+                title="MY QUICK ORDER"
+                translate="title"
+                module="MyModules_QuickOrder"
+                sortOrder="20"
+                dependsOnModule="MyModules_QuickOrder"
+                resource="MyModules_QuickOrder::all"
+        />
+
+        <add
+                id="MyModules_QuickOrder::grid"
+                title="Quick Order UI Grid"
+                translate="title"
+                module="MyModules_QuickOrder"
+                sortOrder="10"
+                parent="MyModules_QuickOrder::all"
+                action="mymodules_quickorder/orders/listing"
+                resource="MyModules_QuickOrder::grid"
+        />
+
+        <add
+                id="MyModules_QuickOrder::status_grid"
+                title="Satus Grid"
+                translate="title"
+                module="MyModules_QuickOrder"
+                sortOrder="10"
+                parent="MyModules_QuickOrder::all"
+                action="mymodules_quickorder/status/listing"
+                resource="MyModules_QuickOrder::status_grid"
+        />
+
+        <add
+                id="MyModules_QuickOrder::system_config"
+                title="Config"
+                translate="title"
+                module="MyModules_QuickOrder"
+                sortOrder="10"
+                parent="MyModules_QuickOrder::all"
+                action="admin/system_config/edit/section/my_quick_orders"
+                resource="MyModules_QuickOrder::system_config"
+        />
+    </menu>
+</config>

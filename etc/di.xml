@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+
+    <preference for="MyModules\QuickOrder\Api\Order\QuickOrderInterface"
+                type="MyModules\QuickOrder\Model\QuickOrders" />
+
+    <preference for="MyModules\QuickOrder\Api\QuickOrdersRepositoryInterface"
+                type="MyModules\QuickOrder\Model\QuickOrdersRepository" />
+
+    <preference for="MyModules\QuickOrder\Api\Order\QuickOrderSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="MyModules\QuickOrder\Api\Status\StatusInterface"
+                type="MyModules\QuickOrder\Model\Status" />
+
+    <preference for="MyModules\QuickOrder\Api\StatusRepositoryInterface"
+                type="MyModules\QuickOrder\Model\StatusRepository" />
+
+    <preference for="MyModules\QuickOrder\Api\Status\StatusSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="MyModules\QuickOrder\Api\PersonFront\ConfigInterface"
+                type="MyModules\QuickOrder\ViewModel\ReadFrontConfig" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item
+                        name="orders_grid_listing_data_source"
+                        xsi:type="string"
+                >MyModules\QuickOrder\Model\ResourceModel\QuickOrders\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item
+                        name="status_grid_listing_data_source"
+                        xsi:type="string"
+                >MyModules\QuickOrder\Model\ResourceModel\Status\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

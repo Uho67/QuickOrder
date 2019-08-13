@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="mymodules_quickorder" frontName="mymodules_quickorder">
+            <module name="MyModules_QuickOrder" />
+        </route>
+    </router>
+</config>
