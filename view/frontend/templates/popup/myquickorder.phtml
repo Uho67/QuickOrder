@@ -1,19 +1,21 @@
 <?php
+
 /** @var $block \Magento\Framework\View\Element\Template" */
 
 /** @var \MyModules\QuickOrder\Api\PersonFront\ConfigInterface $viewModel */
 ?>
 <div class="action primary tocart">
-<input class="size-selection" type="button" value="Quick order" id='<?= $block->getview_model()->getProduct()->getSku()?>'>
+   <label><input class="size-selection" type="button" value="Quick order"
+           id='<?= $block->getview_model()->getProduct()->getSku() ?>'></label>
 </div>
-<script type = "text/x-magento-init">
+<script type="text/x-magento-init">
 {
-     ".size-selection":{
-     "MyModules_QuickOrder/js/popup":{}
+         ".size-selection":{
+         "MyModules_QuickOrder/js/popup":{
+                    "name" : "<?= $block->getview_model()->getName()?>",
+                    "email": "<?= $block->getview_model()->getEmail() ?>",
+                    "phone":"<?= $block->getview_model()->getPhone()?>"
+         }
      }
 }
 </script>
-
-
-
-

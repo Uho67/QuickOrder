@@ -23,30 +23,22 @@ interface QuickOrderInterface
     const UPDATE_FIELD              = 'update_data';
 
     const CACHE_TAG                 = 'my_quick_order_table';
-
     const REGISTRY_KEY              = 'my_quick_order_table';
 
 
     public function getId();
-
     public function getName();
     public function setName($name);
-
     public function getSku();
     public function setSku($sku);
-
     public function getEmail();
     public function setEmail($email);
-
     public function getPhone();
     public function setPhone($phone);
-
     public function getStatus();
     public function setStatus($status);
-
     public function getCreateData();
     public function setCreateData($data);
-
     public function getUpdateData();
     public function setUpdateData($data);
 

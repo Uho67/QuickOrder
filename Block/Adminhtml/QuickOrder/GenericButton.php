@@ -19,9 +19,10 @@ class GenericButton
     public function __construct(
         Context $context,
         QuickOrdersRepositoryInterface $repository
-    ) {
-        $this->context      = $context;
-        $this->repository   = $repository;
+    )
+    {
+        $this->context = $context;
+        $this->repository = $repository;
     }
 
     /**

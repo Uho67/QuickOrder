@@ -12,8 +12,7 @@
                     >MyModules\QuickOrder\Api\PersonFront\ConfigInterface</argument>
                 </arguments>
             </block>
-            <block  class="Magento\Framework\View\Element\Template"
-                    name="quick-order-button"
+            <block name="quick-order-form"
                     template="MyModules_QuickOrder::popup/form.phtml"
                     after="-"
             />

@@ -145,8 +145,8 @@ class InlineEdit extends \Magento\Backend\App\Action
     {
         if (!($this->dataProcessor->validate($pageData) && $this->dataProcessor->validateRequireEntry($pageData))) {
             $error = true;
-            foreach ($this->messageManager->getMessages(true)->getItems() as $error) {
-                $messages[] = $this->getErrorWithPageId($page, $error->getText());
+            foreach ($this->messageManager->getMessages(true)->getItems() as $errorMessage) {
+                $messages[] = $this->getErrorWithPageId($page, $errorMessage->getText());
             }
         }
     }

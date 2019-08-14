@@ -37,26 +37,28 @@ class Save extends BaseAction
     }
 
     public function execute()
-     {
-
+    {
          $isPost = $this->getRequest()->isPost();
-
          if ($isPost) {
-             $model = $this->ordersFactory->create();
-             $formData = $this->getRequest()->getParams();
-
-             if(!isset($formData['status'])){
-                 $storeTipe = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITE;
-                 $path = 'my_quick_orders/general/default_status';
-                 $result = $this->scopeConfig->getValue($path,$storeTipe);
-                 $formData['status'] = $result;
+             try {
+                 $model = $this->ordersFactory->create();
+                 $formData = $this->getRequest()->getParams();
+                 if (!isset($formData['status'])) {
+                     $storeTipe = \Magento\Store\Model\ScopeInterface::SCOPE_WEBSITE;
+                     $path = 'my_quick_orders/general/default_status';
+                     $result = $this->scopeConfig->getValue($path, $storeTipe);
+                     $formData['status'] = $result;
+                 }
+                 $model->setData($formData);
+                 $this->ordersRepository->save($model);
+                 $this->messageManager->addSuccessMessage(__('Oreder has been saved.'));
+             }catch (\Exception $e){
+                 $this->messageManager->addErrorMessage(__('Ordet doesn\'t save, please try now' ));
              }
-             $model->setData($formData);
-             $this->ordersRepository->save($model);
-
          }
          $this->_redirect($this->_redirect->getRefererUrl());
-     }
+    }
+
 
 
 }

@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection ALL */
+/** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
+
 /**
  * Created by PhpStorm.
  * User: uho0613
@@ -27,7 +29,7 @@ interface QuickOrdersRepositoryInterface
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
      * @return \MyModules\QuickOrder\Api\Order\QuickOrderSearchResultsInterface
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);/** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
 
     /**
      * @param \MyModules\QuickOrder\Api\Order\QuickOrderInterface $order
