@@ -26,6 +26,14 @@ class QuickOrdersRepository implements \MyModules\QuickOrder\Api\QuickOrdersRepo
     /** @var \MyModules\QuickOrder\Api\Order\QuickOrderSearchResultsInterfaceFactory */
     protected $searchResultsFactory;
 
+    /**
+     * QuickOrdersRepository constructor.
+     * @param ResourceModel\QuickOrders $resource
+     * @param QuickOrdersFactory $ordersFactory
+     * @param \Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface $collectionProcessor
+     * @param ResourceModel\QuickOrders\CollectionFactory $collectionFactory
+     * @param \MyModules\QuickOrder\Api\Order\QuickOrderSearchResultsInterfaceFactory $ordersSearchResultsFactory
+     */
     public function __construct(
         \MyModules\QuickOrder\Model\ResourceModel\QuickOrders $resource,
         \MyModules\QuickOrder\Model\QuickOrdersFactory $ordersFactory,

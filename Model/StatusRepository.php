@@ -26,8 +26,20 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
     /** @var \MyModules\QuickOrder\Api\Status\StatusSearchResultsInterfaceFactory */
     protected $searchResultsFactory;
 
+    /**
+     * @var \Magento\Framework\Message\ManagerInterface
+     */
     protected $messageManager;
 
+    /**
+     * StatusRepository constructor.
+     * @param ResourceModel\Status $resource
+     * @param StatusFactory $statusFactory
+     * @param \Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface $collectionProcessor
+     * @param ResourceModel\Status\CollectionFactory $collectionFactory
+     * @param \MyModules\QuickOrder\Api\Status\StatusSearchResultsInterfaceFactory $statusSearchResultsFactory
+     * @param \Magento\Framework\App\Action\Context $context
+     */
     public function __construct(
 
         \MyModules\QuickOrder\Model\ResourceModel\Status $resource,

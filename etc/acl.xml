@@ -5,47 +5,57 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="MyModules_QuickOrder::all" title="My QuickOrder All" translate="title" sortOrder="30" >
-                    <resource id="MyModules_QuickOrder::grid" title="Quick Orders" translate="title" sortOrder="10" >
+                <resource id="MyModules_QuickOrder::all" title="Quick order all" translate="title" sortOrder="30" >
+                    <resource id="MyModules_QuickOrder::orderAll" title="Quick Order" translate="title" sortOrder="10" >
 
                         <resource
                                 id="MyModules_QuickOrder::delete_order"
                                 title="Quick Order Delete"
                                 translate="title"
-                                sortOrder="40"
+                                sortOrder="30"
                         />
                         <resource
-                                id="MyModules_QuickOrder::editOrder"
+                                id="MyModules_QuickOrder::edit_order"
                                 title="Quick Order Edit"
                                 translate="title"
                                 sortOrder="40"
                         />
+                        <resource
+                                id="MyModules_QuickOrder::inline_order"
+                                title="Quick Order inline"
+                                translate="title"
+                                sortOrder="50"
+                        />
 
                     </resource>
 
-                </resource>
-
-                <resource id="MyModules_QuickOrder::allStatus" title="My QuickOrder Status" translate="title" sortOrder="30" >
-                    <resource id="MyModules_QuickOrder::status_grid" title="Quick Orders Status" translate="title" sortOrder="10" >
+                    <resource id="MyModules_QuickOrder::statusAll" title="Status" translate="title" sortOrder="10" >
 
                         <resource
-                                id="MyModules_QuickOrder::status_delete"
-                                title="Quick Order Status Delete"
+                                id="MyModules_QuickOrder::delete_status"
+                                title="Status Delete"
                                 translate="title"
-                                sortOrder="40"
+                                sortOrder="30"
                         />
                         <resource
-                                id="MyModules_QuickOrder::edit_status"
-                                title="Quick Order Status Edit"
+                                id="MyModules_QuickOrder::inline_status"
+                                title="Status Inline Edit"
                                 translate="title"
-                                sortOrder="40"
+                                sortOrder="50"
                         />
                         <resource
-                                id=" MyModules_QuickOrder::system_config"
-                                title="Default Statu"
+                                id="MyModules_QuickOrder::create_status"
+                                title="Status Create"
                                 translate="title"
-                                sortOrder="40"
+                                sortOrder="50"
                         />
+                        <resource
+                                id="MyModules_QuickOrder::config_status"
+                                title="Status Config"
+                                translate="title"
+                                sortOrder="50"
+                        />
+
                     </resource>
 
                 </resource>

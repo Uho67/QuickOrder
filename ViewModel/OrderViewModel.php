@@ -2,27 +2,46 @@
 /**
  * Created by PhpStorm.
  * User: uho0613
- * Date: 13.08.19
- * Time: 14:33
+ * Date: 17.06.19
+ * Time: 13:04
  */
 
-namespace MyModules\QuickOrder\Block\Product;
+namespace MyModules\QuickOrder\ViewModel;
 
-use Magento\Catalog\Block\Product\ProductList\Item\Block;
+use MyModules\QuickOrder\Api\PersonFront\OrderViewModelInterface;
+use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Catalog\Helper\Data;
 use Magento\Customer\Model\SessionFactory;
-use Magento\Catalog\Block\Product\Context;
 
-class ProductOrderList extends Block
+class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
 {
+    /**
+     * @var Data
+     */
+    private $helperProduct;
     /**
      * @var SessionFactory
      */
     private $sesionFactory;
 
-    public function __construct( SessionFactory $sessionFactory, Context $context, array $data = [])
+
+    /**
+     * OrderViewModel constructor.
+     * @param SessionFactory $sessionFactory
+     * @param Data $data
+     */
+    public function __construct(SessionFactory $sessionFactory, Data $data)
     {
         $this->sesionFactory  =  $sessionFactory;
-        parent::__construct($context, $data);
+        $this->helperProduct = $data;
+    }
+
+    /**
+     * @return \Magento\Catalog\Model\Product|null
+     */
+    public function getProduct()
+    {
+        return $this->helperProduct->getProduct();
     }
 
     /**
@@ -53,7 +72,7 @@ class ProductOrderList extends Block
     public function getPhone()
     {
         if ($this->sesionFactory->create()->getCustomer()->getDefaultShippingAddress()) {
-            return  $this->phone = $this->sesionFactory->create()->getCustomer()->getDefaultShippingAddress()->getTelephone();
+           return  $this->phone = $this->sesionFactory->create()->getCustomer()->getDefaultShippingAddress()->getTelephone();
         }
         return '';
     }

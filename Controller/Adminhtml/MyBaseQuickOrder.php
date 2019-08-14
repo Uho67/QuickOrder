@@ -21,8 +21,8 @@ use MyModules\QuickOrder\Model\QuickOrdersFactory;
 
 abstract class MyBaseQuickOrder extends Action
 {
-    const ACL_RESOURCE          = 'MyModules_QuickOrder::all';
-    const MENU_ITEM             = 'MyModules_QuickOrder::all';
+    const ACL_RESOURCE          = 'MyModules_QuickOrder::orderAll';
+    const MENU_ITEM             = 'MyModules_QuickOrder::orderAll';
     const PAGE_TITLE            = 'MyModules_QuickOrder Quick Orders';
     const BREADCRUMB_TITLE      = 'Orders';
     const QUERY_PARAM_ID        = 'id';
@@ -46,6 +46,14 @@ abstract class MyBaseQuickOrder extends Action
     /** @var QuickOrdersRepositoryInterface */
     protected $repository;
 
+    /**
+     * MyBaseQuickOrder constructor.
+     * @param Registry $registry
+     * @param Context $context
+     * @param PageFactory $pageFactory
+     * @param QuickOrdersFactory $quickOrdersFactory
+     * @param QuickOrdersRepositoryInterface $quickOrdersRepository
+     */
     public function __construct(Registry $registry,Context $context,PageFactory $pageFactory,
                                 QuickOrdersFactory $quickOrdersFactory,
                                 QuickOrdersRepositoryInterface $quickOrdersRepository)

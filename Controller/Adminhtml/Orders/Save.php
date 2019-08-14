@@ -16,12 +16,11 @@ use MyModules\QuickOrder\Controller\Adminhtml\MyBaseQuickOrder as BaseAction;
 
 class Save extends BaseAction
 {
-    const ACL_RESOURCE      = 'MyModules_QuickOrder::editOrder';
+    const ACL_RESOURCE      = 'MyModules_QuickOrder::edit_order';
     /** {@inheritdoc} */
     public function execute()
     {
         $isPost = $this->getRequest()->isPost();
-
         if ($isPost) {
             $model = $this->getModel();
             $formData = $this->getRequest()->getParam('orders');
@@ -46,7 +45,6 @@ class Save extends BaseAction
             }
 
             $this->_getSession()->setFormData($formData);
-
             return $this->_redirect('*/*/edit', ['id' => $model->getId()]);
         }
 

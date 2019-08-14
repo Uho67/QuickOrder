@@ -25,21 +25,86 @@ interface QuickOrderInterface
     const CACHE_TAG                 = 'my_quick_order_table';
     const REGISTRY_KEY              = 'my_quick_order_table';
 
-
+    /**
+     * @return mixed
+     */
     public function getId();
+
+    /**
+     * @return mixed
+     */
     public function getName();
+
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function setName($name);
+
+    /**
+     * @return mixed
+     */
     public function getSku();
+
+    /**
+     * @param $sku
+     * @return mixed
+     */
     public function setSku($sku);
+
+    /**
+     * @return mixed
+     */
     public function getEmail();
+
+    /**
+     * @param $email
+     * @return mixed
+     */
     public function setEmail($email);
+
+    /**
+     * @return mixed
+     */
     public function getPhone();
+
+    /**
+     * @param $phone
+     * @return mixed
+     */
     public function setPhone($phone);
+
+    /**
+     * @return mixed
+     */
     public function getStatus();
+
+    /**
+     * @param $status
+     * @return mixed
+     */
     public function setStatus($status);
+
+    /**
+     * @return mixed
+     */
     public function getCreateData();
+
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function setCreateData($data);
+
+    /**
+     * @return mixed
+     */
     public function getUpdateData();
+
+    /**
+     * @param $data
+     * @return mixed
+     */
     public function setUpdateData($data);
 
 }

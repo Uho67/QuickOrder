@@ -12,8 +12,6 @@ use MyModules\QuickOrder\Controller\Adminhtml\MyBaseStatus;
 
 class Listing extends MyBaseStatus
 {
-    const ACL_RESOURCE      = 'MyModules_QuickOrder::status_grid';
-    const MENU_ITEM         = 'MyModules_QuickOrder::status_grid';
     const PAGE_TITLE        = 'Status Grid';
     const BREADCRUMB_TITLE  = 'Status Grid';
 }

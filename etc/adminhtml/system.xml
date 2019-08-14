@@ -9,7 +9,7 @@
         <section id="my_quick_orders" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Orders</label>
             <tab>mymodules_quickorder</tab>
-            <resource>MyModules_QuickOrder::system_config</resource>
+            <resource>MyModules_QuickOrder::config_status</resource>
             <group
                     id="general"
                     translate="label"

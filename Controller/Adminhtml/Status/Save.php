@@ -8,15 +8,12 @@
 
 namespace MyModules\QuickOrder\Controller\Adminhtml\Status;
 
-
-
-
 use MyModules\QuickOrder\Api\Status\StatusInterface;
 use MyModules\QuickOrder\Controller\Adminhtml\MyBaseStatus as BaseAction;
 
-
 class Save extends BaseAction
 {
+    const ACL_RESOURCE      = 'MyModules_QuickOrder::create_status';
     /** {@inheritdoc} */
     public function execute()
     {

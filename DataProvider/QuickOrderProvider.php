@@ -44,7 +44,7 @@ class QuickOrderProvider extends AbstractDataProvider
             return [];
         }
 
-        /** @var $status QuickOrderInterface */
+        /** @var $order QuickOrderInterface */
         foreach ($items as $order) {
             $this->loadedData[$order->getId()] = $order->getData();
         }

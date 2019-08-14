@@ -13,10 +13,10 @@ use MyModules\QuickOrder\Controller\Adminhtml\MyBaseQuickOrder as BaseAction;
 
 class Edit extends BaseAction
 {
-    const ACL_RESOURCE      = 'MyModules_QuickOrder::editOrder';
-    const MENU_ITEM         = 'MyModules_QuickOrder::editOrder';
-    const PAGE_TITLE        = 'Edit Order';
-    const BREADCRUMB_TITLE  = 'Edit Order';
+    const ACL_RESOURCE      = 'MyModules_QuickOrder::edit_order';
+    const MENU_ITEM         = 'MyModules_QuickOrder::edit_order';
+    const PAGE_TITLE        = 'Order';
+    const BREADCRUMB_TITLE  = 'Order';
 
     /** {@inheritdoc} */
     public function execute()

@@ -23,8 +23,8 @@
     <preference for="MyModules\QuickOrder\Api\Status\StatusSearchResultsInterface"
                 type="Magento\Framework\Api\SearchResults" />
 
-    <preference for="MyModules\QuickOrder\Api\PersonFront\ConfigInterface"
-                type="MyModules\QuickOrder\ViewModel\ReadFrontConfig" />
+    <preference for="MyModules\QuickOrder\Api\PersonFront\OrderViewModelInterface"
+                type="MyModules\QuickOrder\ViewModel\OrderViewModel" />
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>

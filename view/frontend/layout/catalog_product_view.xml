@@ -9,7 +9,8 @@
                    after="-">
                 <arguments>
                     <argument name = "view_model" xsi:type = "object"
-                    >MyModules\QuickOrder\Api\PersonFront\ConfigInterface</argument>
+                    >MyModules\QuickOrder\Api\PersonFront\OrderViewModelInterface
+                    </argument>
                 </arguments>
             </block>
             <block name="quick-order-form"

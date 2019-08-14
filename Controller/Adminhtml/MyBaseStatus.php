@@ -21,8 +21,8 @@ use Magento\Framework\Controller\ResultInterface;
 
 abstract class MyBaseStatus extends Action
 {
-    const ACL_RESOURCE          = 'MyModules_QuickOrder::all';
-    const MENU_ITEM             = 'MyModules_QuickOrder::all';
+    const ACL_RESOURCE          = 'MyModules_QuickOrder::statusAll';
+    const MENU_ITEM             = 'MyModules_QuickOrder::statusAll';
     const PAGE_TITLE            = 'MyModules_QuickOrder Status';
     const BREADCRUMB_TITLE      = 'Status';
     const QUERY_PARAM_ID        = 'id';
@@ -42,6 +42,13 @@ abstract class MyBaseStatus extends Action
     /** @var StatusRepositoryInterface */
     protected $repository;
 
+    /**
+     * MyBaseStatus constructor.
+     * @param Context $context
+     * @param PageFactory $pageFactory
+     * @param StatusFactory $statusFactory
+     * @param StatusRepositoryInterface $statusRepository
+     */
     public function __construct(Context $context,PageFactory $pageFactory,
                                 StatusFactory $statusFactory,
                                 StatusRepositoryInterface $statusRepository)
@@ -61,10 +68,12 @@ abstract class MyBaseStatus extends Action
         return $this->model;
     }
 
+    /**
+     *
+     */
     protected function redirectLastPage()
     {
         $this->_redirect($this->_redirect->getRefererUrl());
-        return;
     }
 
     /** {@inheritdoc} */
@@ -95,13 +104,17 @@ abstract class MyBaseStatus extends Action
         return $this->resultPage;
     }
 
-
+    /**
+     * @return \Magento\Framework\App\ResponseInterface
+     */
     protected function redirectToGrid()
     {
         return $this->_redirect('*/status/listing');
     }
 
-
+    /**
+     * @return $this
+     */
     protected function _setPageData()
     {
         $resultPage = $this->_getResultPage();

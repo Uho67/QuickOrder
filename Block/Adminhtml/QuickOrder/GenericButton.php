@@ -16,6 +16,11 @@ class GenericButton
     /** @var QuickOrdersRepositoryInterface */
     protected $repository;
 
+    /**
+     * GenericButton constructor.
+     * @param Context $context
+     * @param QuickOrdersRepositoryInterface $repository
+     */
     public function __construct(
         Context $context,
         QuickOrdersRepositoryInterface $repository

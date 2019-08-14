@@ -24,7 +24,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     /**
      * Authorization level of a basic admin session
      */
-    const ACL_RESOURCE      = 'MyModules_QuickOrder::editOrder';
+    const ACL_RESOURCE      = 'MyModules_QuickOrder::inline_order';
 
     /**
      * @var \Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor

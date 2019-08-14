@@ -16,6 +16,11 @@ class GenericButton
     /** @var StatusRepositoryInterface */
     protected $repository;
 
+    /**
+     * GenericButton constructor.
+     * @param Context $context
+     * @param StatusRepositoryInterface $repository
+     */
     public function __construct(
         Context $context,
         StatusRepositoryInterface $repository

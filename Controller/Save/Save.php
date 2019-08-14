@@ -18,7 +18,14 @@ use Magento\Customer\Model\SessionFactory;
 
 class Save extends BaseAction
 {
+    /**
+     * @var ScopeConfigInterface
+     */
     protected $scopeConfig;
+
+    /**
+     * @var QuickOrdersFactory
+     */
     protected $ordersFactory;
     protected $ordersRepository;
     protected $sessionFactory;
@@ -36,6 +43,9 @@ class Save extends BaseAction
         parent::__construct($context);
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     */
     public function execute()
     {
          $isPost = $this->getRequest()->isPost();

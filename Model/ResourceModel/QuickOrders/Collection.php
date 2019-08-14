@@ -13,7 +13,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 {
     /** {@inheritdoc} */
     protected function _construct()
-{
-    $this->_init(\MyModules\QuickOrder\Model\QuickOrders::class, \MyModules\QuickOrder\Model\ResourceModel\QuickOrders::class);
-}
+    {
+        $this->_init(\MyModules\QuickOrder\Model\QuickOrders::class, \MyModules\QuickOrder\Model\ResourceModel\QuickOrders::class);
+    }
 }

@@ -21,7 +21,7 @@ use MyModules\QuickOrder\Api\StatusRepositoryInterface as StatusRepository;
  */
 class InlineEdit extends \Magento\Backend\App\Action
 {
-    const ACL_RESOURCE          = "MyModules_QuickOrder::edit_status";
+    const ACL_RESOURCE          = "MyModules_QuickOrder::inline_status";
     /**
      * @var \Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor
      */

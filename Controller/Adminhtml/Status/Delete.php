@@ -11,7 +11,7 @@ use MyModules\QuickOrder\Controller\Adminhtml\MyBaseStatus as BaseAction;
 class Delete extends BaseAction
 {
 
-    const ACL_RESOURCE          = "MyModules_QuickOrder::status_delete";
+    const ACL_RESOURCE          = "MyModules_QuickOrder::delete_status";
     /** {@inheritdoc} */
     public function execute()
     {
