@@ -8,13 +8,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-
             <referenceBlock name="category.product.addto">
                 <block class="MyModules\QuickOrder\Block\Product\ProductOrderList"
                        name="to.wishlist" before="compare"
                        template="MyModules_QuickOrder::popup/category/my_quick_order.phtml"/>
             </referenceBlock>
-
             <block  class="Magento\Framework\View\Element\Template"
                     name="quick-order-button"
                     template="MyModules_QuickOrder::popup/form.phtml"

@@ -1,36 +1,30 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: uho0613
- * Date: 06.07.19
- * Time: 2:16
- */
+<?php /** @noinspection ALL */
 
 namespace MyModules\QuickOrder\Model;
 
+use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\NoSuchEntityException;
 
+/**
+ * Class StatusRepository
+ * @package MyModules\QuickOrder\Model
+ */
 class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInterface
 {
     /** @var \MyModules\QuickOrder\Model\ResourceModel\Status */
     protected $resource;
-
     /** @var \MyModules\QuickOrder\Model\StatusFactory  */
     protected $statusFactory;
-
     /** @var \Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface */
     protected $collectionProcessor;
-
     /** @var \MyModules\QuickOrder\Model\ResourceModel\Status\CollectionFactory */
     protected $collectionFactory;
-
     /** @var \MyModules\QuickOrder\Api\Status\StatusSearchResultsInterfaceFactory */
     protected $searchResultsFactory;
-
     /**
      * @var \Magento\Framework\Message\ManagerInterface
      */
     protected $messageManager;
-
     /**
      * StatusRepository constructor.
      * @param ResourceModel\Status $resource
@@ -41,7 +35,6 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
      * @param \Magento\Framework\App\Action\Context $context
      */
     public function __construct(
-
         \MyModules\QuickOrder\Model\ResourceModel\Status $resource,
         \MyModules\QuickOrder\Model\StatusFactory $statusFactory,
         \Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface $collectionProcessor,
@@ -56,7 +49,6 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
         $this->searchResultsFactory     = $statusSearchResultsFactory;
         $this->messageManager           = $context->getMessageManager();
     }
-
     /** {@inheritdoc} */
     public function getById($id)
     {
@@ -71,34 +63,33 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
     /** {@inheritdoc} */
     public function deleteById($id)
     {
-        $this->delete($this->getById($id));
+        try {
+            $this->delete($this->getById($id));
+        } catch (CouldNotDeleteException $e) {
+        } catch (NoSuchEntityException $e) {
+        }
     }
 
     /** {@inheritdoc} */
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria )
     {
         $collection = $this->collectionFactory->create();
-
         $this->collectionProcessor->process($searchCriteria, $collection);
-
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($searchCriteria);
         $searchResults->setItems($collection->getItems());
         $searchResults->setTotalCount($collection->getSize());
-
         return $searchResults;
     }
 
     /** {@inheritdoc} */
     public function save(\MyModules\QuickOrder\Api\Status\StatusInterface $status)
     {
-
         try {
             $this->resource->save($status);
         } catch (\Exception $exception) {
             throw new \Magento\Framework\Exception\CouldNotSaveException(__($exception->getMessage()));
         }
-
         return $status;
     }
 
@@ -112,6 +103,4 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
         }
         return $this;
     }
-
-
 }

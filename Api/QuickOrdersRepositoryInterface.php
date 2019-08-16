@@ -1,12 +1,4 @@
-<?php /** @noinspection ALL */
-/** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
-
-/**
- * Created by PhpStorm.
- * User: uho0613
- * Date: 04.07.19
- * Time: 23:53
- */
+<?php
 
 namespace MyModules\QuickOrder\Api;
 

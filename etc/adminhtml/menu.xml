@@ -12,7 +12,6 @@
                 dependsOnModule="MyModules_QuickOrder"
                 resource="MyModules_QuickOrder::all"
         />
-
         <add
                 id="MyModules_QuickOrder::grid"
                 title="Quick Order UI Grid"
@@ -23,7 +22,6 @@
                 action="mymodules_quickorder/orders/listing"
                 resource="MyModules_QuickOrder::orderAll"
         />
-
         <add
                 id="MyModules_QuickOrder::status_grid"
                 title="Satus Grid"
@@ -34,7 +32,6 @@
                 action="mymodules_quickorder/status/listing"
                 resource="MyModules_QuickOrder::statusAll"
         />
-
         <add
                 id="MyModules_QuickOrder::system_config"
                 title="Status Config"

@@ -15,7 +15,6 @@ class Delete extends BaseAction
     public function execute()
     {
         $id = $this->getRequest()->getParam(static::QUERY_PARAM_ID);
-
         if (!empty($id)) {
             try {
                 $this->repository->deleteById($id);
@@ -27,11 +26,10 @@ class Delete extends BaseAction
             }
         } else {
             $this->logger->error(
-                sprintf("Require parameter `%s` is missing", static::QUERY_PARAM_ID)
+                sprintf('Require parameter `%s` is missing', static::QUERY_PARAM_ID)
             );
             $this->messageManager->addMessage(__('No item to delete'));
         }
-
         return $this->redirectToGrid();
     }
 }

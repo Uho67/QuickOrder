@@ -8,7 +8,10 @@
 
 namespace MyModules\QuickOrder\Model\ResourceModel;
 
-
+/**
+ * Class QuickOrders
+ * @package MyModules\QuickOrder\Model\ResourceModel
+ */
 class QuickOrders extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     /** {@inheritdoc} */

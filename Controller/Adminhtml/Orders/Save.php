@@ -8,12 +8,13 @@
 
 namespace MyModules\QuickOrder\Controller\Adminhtml\Orders;
 
-
-
-
 use MyModules\QuickOrder\Api\Order\QuickOrderInterface;
 use MyModules\QuickOrder\Controller\Adminhtml\MyBaseQuickOrder as BaseAction;
 
+/**
+ * Class Save
+ * @package MyModules\QuickOrder\Controller\Adminhtml\Orders
+ */
 class Save extends BaseAction
 {
     const ACL_RESOURCE      = 'MyModules_QuickOrder::edit_order';
@@ -30,25 +31,20 @@ class Save extends BaseAction
             }
             unset($formData[QuickOrderInterface::ID_FIELD]);
             $model->setData($formData);
-
             try {
                 $model = $this->repository->save($model);
                 $this->messageManager->addSuccessMessage(__('Order has been saved.'));
                 if ($this->getRequest()->getParam('back')) {
                     return $this->_redirect('*/*/edit', ['id' => $model->getId(), '_current' => true]);
                 }
-
                 return $this->redirectToGrid();
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());
                 $this->messageManager->addErrorMessage(__('Order doesn\'t save' ));
             }
-
             $this->_getSession()->setFormData($formData);
             return $this->_redirect('*/*/edit', ['id' => $model->getId()]);
         }
-
         return $this->doRefererRedirect();
     }
-
 }

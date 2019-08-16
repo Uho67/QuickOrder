@@ -1,7 +1,5 @@
 <?php
-
 /** @var $block \Magento\Framework\View\Element\Template" */
-
 /** @var \MyModules\QuickOrder\Api\PersonFront\OrderViewModelInterface $viewModel */
 ?>
 <div class="action primary tocart">
@@ -11,11 +9,8 @@
 <script type="text/x-magento-init">
 {
          ".size-selection":{
-         "MyModules_QuickOrder/js/popup":{
-                    "name" : "<?= $block->getview_model()->getName()?>",
-                    "email": "<?= $block->getview_model()->getEmail() ?>",
-                    "phone":"<?= $block->getview_model()->getPhone()?>"
-         }
+         "MyModules_QuickOrder/js/popup": <?= $block->getview_model()->getCustomerData()?>
+
      }
 }
 </script>

@@ -1,14 +1,15 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: uho0613
- * Date: 04.07.19
- * Time: 23:48
- */
+<?php /** @noinspection ALL */
+
 
 namespace MyModules\QuickOrder\Model;
 
+use Magento\Framework\Exception\CouldNotDeleteException;
+use Magento\Framework\Exception\NoSuchEntityException;
 
+/**
+ * Class QuickOrdersRepository
+ * @package MyModules\QuickOrder\Model
+ */
 class QuickOrdersRepository implements \MyModules\QuickOrder\Api\QuickOrdersRepositoryInterface
 {
     /** @var \MyModules\QuickOrder\Model\ResourceModel\QuickOrders */
@@ -25,6 +26,7 @@ class QuickOrdersRepository implements \MyModules\QuickOrder\Api\QuickOrdersRepo
 
     /** @var \MyModules\QuickOrder\Api\Order\QuickOrderSearchResultsInterfaceFactory */
     protected $searchResultsFactory;
+    /** @noinspection PhpUnnecessaryFullyQualifiedNameInspection */
 
     /**
      * QuickOrdersRepository constructor.
@@ -63,7 +65,11 @@ class QuickOrdersRepository implements \MyModules\QuickOrder\Api\QuickOrdersRepo
     /** {@inheritdoc} */
     public function deleteById($id)
     {
-        $this->delete($this->getById($id));
+        try {
+            $this->delete($this->getById($id));
+        } catch (CouldNotDeleteException $e) {
+        } catch (NoSuchEntityException $e) {
+        }
     }
 
     /** {@inheritdoc} */
@@ -78,21 +84,15 @@ class QuickOrdersRepository implements \MyModules\QuickOrder\Api\QuickOrdersRepo
         return $this;
     }
 
-
-
-
     /** {@inheritdoc} */
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
     {
         $collection = $this->collectionFactory->create();
-
         $this->collectionProcessor->process($searchCriteria, $collection);
-
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($searchCriteria);
         $searchResults->setItems($collection->getItems());
         $searchResults->setTotalCount($collection->getSize());
-
         return $searchResults;
     }
 
@@ -104,7 +104,6 @@ class QuickOrdersRepository implements \MyModules\QuickOrder\Api\QuickOrdersRepo
         } catch (\Exception $exception) {
             throw new \Magento\Framework\Exception\CouldNotSaveException(__($exception->getMessage()));
         }
-
         return $order;
     }
 }

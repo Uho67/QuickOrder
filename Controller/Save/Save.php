@@ -8,35 +8,50 @@
 
 namespace MyModules\QuickOrder\Controller\Save;
 
-
+use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use MyModules\QuickOrder\Api\QuickOrdersRepositoryInterface;
-
-use MyModules\QuickOrder\Model\QuickOrdersFactory;
 use Magento\Framework\App\Action\Action as BaseAction;
 use Magento\Customer\Model\SessionFactory;
+use MyModules\QuickOrder\Model\QuickOrdersFactory;
 
 class Save extends BaseAction
 {
     /**
      * @var ScopeConfigInterface
      */
-    protected $scopeConfig;
+    private $scopeConfig;
 
     /**
      * @var QuickOrdersFactory
      */
-    protected $ordersFactory;
-    protected $ordersRepository;
-    protected $sessionFactory;
+    private $ordersFactory;
+
+    /**
+     * @var QuickOrdersRepositoryInterface
+     */
+    private $ordersRepository;
+
+    /**
+     * @var SessionFactory
+     */
+    private $sessionFactory;
+    /**
+     * Save constructor.
+     * @param SessionFactory $sessionFactory
+     * @param QuickOrdersRepositoryInterface $ordersRepository
+     * @param QuickOrdersFactory $ordersFactory
+     * @param \Magento\Framework\App\Action\Context $context
+     * @param ScopeConfigInterface $scopeConfig
+     */
     public function __construct(
         SessionFactory $sessionFactory,
         QuickOrdersRepositoryInterface $ordersRepository,
         QuickOrdersFactory $ordersFactory,
-        \Magento\Framework\App\Action\Context $context,
-     ScopeConfigInterface $scopeConfig)
-    {
-        $this->sessionFactory = $sessionFactory;
+        Context $context,
+        ScopeConfigInterface $scopeConfig
+    ) {
+        $this->sessionFactory      = $sessionFactory;
         $this->ordersRepository    = $ordersRepository;
         $this->ordersFactory       = $ordersFactory;
         $this->scopeConfig         = $scopeConfig;
@@ -68,7 +83,4 @@ class Save extends BaseAction
          }
          $this->_redirect($this->_redirect->getRefererUrl());
     }
-
-
-
 }

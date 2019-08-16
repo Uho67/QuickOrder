@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: uho0613
- * Date: 06.07.19
- * Time: 2:07
- */
 
 namespace MyModules\QuickOrder\Api;
-
 
 interface StatusRepositoryInterface
 {

@@ -1,5 +1,4 @@
-define(['jquery',
-    'Magento_Ui/js/modal/modal'],function ($, modal)
+define(['jquery', 'Magento_Ui/js/modal/modal'], function ($, modal)
 {
     return function (config,node)
     {
@@ -19,7 +18,5 @@ define(['jquery',
           document.getElementById('my_phone').value     = config.phone;
           $('#new_my_form').modal('openModal');
         };
-
     }
-
 });

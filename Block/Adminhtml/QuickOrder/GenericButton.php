@@ -1,11 +1,9 @@
 <?php
 
-
 namespace MyModules\QuickOrder\Block\Adminhtml\QuickOrder;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
-
 use MyModules\QuickOrder\Api\QuickOrdersRepositoryInterface;
 
 class GenericButton
@@ -24,8 +22,7 @@ class GenericButton
     public function __construct(
         Context $context,
         QuickOrdersRepositoryInterface $repository
-    )
-    {
+    ) {
         $this->context = $context;
         $this->repository = $repository;
     }

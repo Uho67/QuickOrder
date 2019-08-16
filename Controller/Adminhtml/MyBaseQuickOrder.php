@@ -7,6 +7,7 @@
  */
 
 namespace MyModules\QuickOrder\Controller\Adminhtml;
+
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Registry;
@@ -14,11 +15,13 @@ use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
-
 use MyModules\QuickOrder\Api\Order\QuickOrderInterface;
 use MyModules\QuickOrder\Api\QuickOrdersRepositoryInterface;
 use MyModules\QuickOrder\Model\QuickOrdersFactory;
-
+/**
+ * Class MyBaseQuickOrder
+ * @package MyModules\QuickOrder\Controller\Adminhtml
+ */
 abstract class MyBaseQuickOrder extends Action
 {
     const ACL_RESOURCE          = 'MyModules_QuickOrder::orderAll';
@@ -26,8 +29,6 @@ abstract class MyBaseQuickOrder extends Action
     const PAGE_TITLE            = 'MyModules_QuickOrder Quick Orders';
     const BREADCRUMB_TITLE      = 'Orders';
     const QUERY_PARAM_ID        = 'id';
-
-
     /** @var Registry  */
     protected $registry;
 
@@ -54,10 +55,13 @@ abstract class MyBaseQuickOrder extends Action
      * @param QuickOrdersFactory $quickOrdersFactory
      * @param QuickOrdersRepositoryInterface $quickOrdersRepository
      */
-    public function __construct(Registry $registry,Context $context,PageFactory $pageFactory,
-                                QuickOrdersFactory $quickOrdersFactory,
-                                QuickOrdersRepositoryInterface $quickOrdersRepository)
-    {
+    public function __construct(
+        Registry $registry,
+        Context $context,
+        PageFactory $pageFactory,
+        QuickOrdersFactory $quickOrdersFactory,
+        QuickOrdersRepositoryInterface $quickOrdersRepository
+    ) {
         $this->registry     = $registry;
         $this->pageFactory  =  $pageFactory;
         $this->modelFactory = $quickOrdersFactory;
@@ -77,7 +81,6 @@ abstract class MyBaseQuickOrder extends Action
     protected function redirectLastPage()
     {
         $this->_redirect($this->_redirect->getRefererUrl());
-        return;
     }
 
     /** {@inheritdoc} */
@@ -85,7 +88,6 @@ abstract class MyBaseQuickOrder extends Action
     {
         $result = parent::_isAllowed();
         $result = $result && $this->_authorization->isAllowed(static::ACL_RESOURCE);
-
         return $result;
     }
 
@@ -97,7 +99,6 @@ abstract class MyBaseQuickOrder extends Action
         if (null === $this->resultPage) {
             $this->resultPage = $this->pageFactory->create();
         }
-
         return $this->resultPage;
     }
 
@@ -126,7 +127,6 @@ abstract class MyBaseQuickOrder extends Action
         $resultPage->getConfig()->getTitle()->prepend((__(static::PAGE_TITLE)));
         $resultPage->addBreadcrumb(__(static::BREADCRUMB_TITLE), __(static::BREADCRUMB_TITLE));
         $resultPage->addBreadcrumb(__(static::BREADCRUMB_TITLE), __(static::BREADCRUMB_TITLE));
-
         return $this;
     }
 
@@ -137,8 +137,6 @@ abstract class MyBaseQuickOrder extends Action
     {
         $redirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $redirect->setUrl($this->_redirect->getRefererUrl());
-
         return $redirect;
     }
-
 }

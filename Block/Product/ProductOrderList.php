@@ -11,7 +11,10 @@ namespace MyModules\QuickOrder\Block\Product;
 use Magento\Catalog\Block\Product\ProductList\Item\Block;
 use Magento\Customer\Model\SessionFactory;
 use Magento\Catalog\Block\Product\Context;
-
+/**
+ * Class ProductOrderList
+ * @package MyModules\QuickOrder\Block\Product
+ */
 class ProductOrderList extends Block
 {
     /**
@@ -19,7 +22,13 @@ class ProductOrderList extends Block
      */
     private $sesionFactory;
 
-    public function __construct( SessionFactory $sessionFactory, Context $context, array $data = [])
+    /**
+     * ProductOrderList constructor.
+     * @param SessionFactory $sessionFactory
+     * @param Context $context
+     * @param array $data
+     */
+    public function __construct(SessionFactory $sessionFactory, Context $context, array $data = [])
     {
         $this->sesionFactory  =  $sessionFactory;
         parent::__construct($context, $data);
@@ -57,5 +66,4 @@ class ProductOrderList extends Block
         }
         return '';
     }
-
 }

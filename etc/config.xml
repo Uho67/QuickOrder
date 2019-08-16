@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
-
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <my_quick_orders>
             <general>
-                <default_status>1</default_status>
+                <default_status>2</default_status>
             </general>
         </my_quick_orders>
     </default>

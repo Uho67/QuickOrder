@@ -14,21 +14,23 @@ use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 use Magento\Backend\Model\Auth\Session;
 
+/**
+ * Class Actions
+ * @package MyModules\QuickOrder\UI\Component\Listing\OrderColumn
+ */
 class Actions extends Column
 {
-    const URL_PATH_EDIT = 'mymodules_quickorder/orders/edit';
-    const URL_PATH_DELETE = 'mymodules_quickorder/orders/delete';
+    const URL_PATH_EDIT      = 'mymodules_quickorder/orders/edit';
+    const URL_PATH_DELETE    = 'mymodules_quickorder/orders/delete';
     const URL_PATH_EDIT_USER = 'mymodules_quickorder/orders/edituser';
-
     /** @var UrlInterface */
     protected $urlBuilder;
-
     /** @var string  */
     private $editUrl;
-
+    /**
+     * @var Session
+     */
     private $session;
-
-
     /**
      * @param ContextInterface      $context
      * @param UiComponentFactory    $uiComponentFactory
@@ -51,11 +53,9 @@ class Actions extends Column
         $this->editUrl = $editUrl;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
-
     /** {@inheritdoc} */
     public function prepareDataSource(array $dataSource)
     {
-
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
                 $name = $this->getData('name');
@@ -75,9 +75,6 @@ class Actions extends Column
                 }
             }
         }
-
         return $dataSource;
     }
-
-
 }

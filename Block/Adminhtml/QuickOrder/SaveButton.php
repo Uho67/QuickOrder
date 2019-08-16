@@ -10,7 +10,6 @@ namespace MyModules\QuickOrder\Block\Adminhtml\QuickOrder;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {
     /** {@inheritdoc} */

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: uho0613
- * Date: 05.07.19
- * Time: 16:46
- */
 
 namespace MyModules\QuickOrder\UI\Component\Listing\Status;
 
@@ -12,16 +6,15 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
-
+/**
+ * Class Actions
+ * @package MyModules\QuickOrder\UI\Component\Listing\Status
+ */
 class Actions extends Column
 {
     const URL_PATH_DELETE = 'mymodules_quickorder/status/delete';
     /** @var UrlInterface */
     protected $urlBuilder;
-
-
-
-
     /**
      * @param ContextInterface      $context
      * @param UiComponentFactory    $uiComponentFactory
@@ -36,16 +29,13 @@ class Actions extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = []
-
     ) {
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
-
     /** {@inheritdoc} */
     public function prepareDataSource(array $dataSource)
     {
-
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
                 $name = $this->getData('name');
@@ -62,9 +52,6 @@ class Actions extends Column
                 }
             }
         }
-
         return $dataSource;
     }
-
-
 }

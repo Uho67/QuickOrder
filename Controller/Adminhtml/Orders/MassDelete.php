@@ -1,10 +1,13 @@
 <?php
 
-
 namespace MyModules\QuickOrder\Controller\Adminhtml\Orders;
 
 use MyModules\QuickOrder\Controller\Adminhtml\MyBaseQuickOrder as BaseAction;
 
+/**
+ * Class MassDelete
+ * @package MyModules\QuickOrder\Controller\Adminhtml\Orders
+ */
 class MassDelete extends BaseAction
 {
     const ACL_RESOURCE      = 'MyModules_QuickOrder::delete_order';
@@ -28,10 +31,9 @@ class MassDelete extends BaseAction
                 __('A total of %1 record(s) has been deleted.', count($ids))
             );
         } else {
-            $this->logger->error("Parameter ids must be array and not empty");
-            $this->messageManager->addWarningMessage("Please select items to delete");
+            $this->logger->error('Parameter ids must be array and not empty');
+            $this->messageManager->addWarningMessage('Please select items to delete');
         }
-
         return $this->redirectToGrid();
     }
 }

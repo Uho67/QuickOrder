@@ -8,11 +8,10 @@
 
 namespace MyModules\QuickOrder\Api\Order;
 
-
 interface QuickOrderSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface
 {
     /**
-     * Get Orsers list.
+     * Get Orders list.
      *
      * @return \MyModules\QuickOrder\Api\Order\QuickOrderInterface[]
      */

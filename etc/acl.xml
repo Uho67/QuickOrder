@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
     <acl>
@@ -7,7 +6,6 @@
             <resource id="Magento_Backend::admin">
                 <resource id="MyModules_QuickOrder::all" title="Quick order all" translate="title" sortOrder="30" >
                     <resource id="MyModules_QuickOrder::orderAll" title="Quick Order" translate="title" sortOrder="10" >
-
                         <resource
                                 id="MyModules_QuickOrder::delete_order"
                                 title="Quick Order Delete"
@@ -26,11 +24,8 @@
                                 translate="title"
                                 sortOrder="50"
                         />
-
                     </resource>
-
                     <resource id="MyModules_QuickOrder::statusAll" title="Status" translate="title" sortOrder="10" >
-
                         <resource
                                 id="MyModules_QuickOrder::delete_status"
                                 title="Status Delete"
@@ -55,9 +50,7 @@
                                 translate="title"
                                 sortOrder="50"
                         />
-
                     </resource>
-
                 </resource>
             </resource>
         </resources>

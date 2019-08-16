@@ -1,27 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: uho0613
- * Date: 06.07.19
- * Time: 4:33
- */
 
 namespace MyModules\QuickOrder\UI\Component\Listing\OrderColumn;
 
-
 use MyModules\QuickOrder\Model\ResourceModel\Status\CollectionFactory;
 
-
-
+/**
+ * Class StatusColumn
+ * @package MyModules\QuickOrder\UI\Component\Listing\OrderColumn
+ */
 class StatusColumn implements \Magento\Framework\Data\OptionSourceInterface
 {
+    /**
+     * @var CollectionFactory
+     */
     protected $collectionFactory;
-
+    /**
+     * StatusColumn constructor.
+     * @param CollectionFactory $collectionFactory
+     */
     public function __construct(CollectionFactory $collectionFactory)
     {
         $this->collectionFactory = $collectionFactory;
     }
-
     /**
      * Options getter
      *
@@ -36,8 +36,6 @@ class StatusColumn implements \Magento\Framework\Data\OptionSourceInterface
             $arr =  ['value' => $item['status_id'],'label' => $item['name']];
             $myReturn[] = $arr;
         }
-
         return $myReturn;
     }
-
 }

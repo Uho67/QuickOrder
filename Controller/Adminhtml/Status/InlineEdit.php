@@ -9,10 +9,7 @@ namespace MyModules\QuickOrder\Controller\Adminhtml\Status;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor;
-
-
 use MyModules\QuickOrder\Api\Status\StatusInterface;
-
 use MyModules\QuickOrder\Api\StatusRepositoryInterface as StatusRepository;
 
 /**
@@ -73,7 +70,6 @@ class InlineEdit extends \Magento\Backend\App\Action
         $resultJson = $this->jsonFactory->create();
         $error = false;
         $messages = [];
-
         $postItems = $this->getRequest()->getParam('items', []);
         if (!($this->getRequest()->getParam('isAjax') && count($postItems))) {
             return $resultJson->setData([
@@ -81,7 +77,6 @@ class InlineEdit extends \Magento\Backend\App\Action
                 'error' => true,
             ]);
         }
-
         foreach (array_keys($postItems) as $pageId) {
             /** @var \MyModules\QuickOrder\Model\QuickOrders $page */
             $page = $this->statusRepository->getById($pageId);
@@ -105,7 +100,6 @@ class InlineEdit extends \Magento\Backend\App\Action
                 $error = true;
             }
         }
-
         return $resultJson->setData([
             'messages' => $messages,
             'error' => $error

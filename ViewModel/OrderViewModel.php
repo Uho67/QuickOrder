@@ -13,7 +13,11 @@ use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Catalog\Helper\Data;
 use Magento\Customer\Model\SessionFactory;
 
-class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
+/**
+ * Class OrderViewModel
+ * @package MyModules\QuickOrder\ViewModel
+ */
+class OrderViewModel implements ArgumentInterface, OrderViewModelInterface
 {
     /**
      * @var Data
@@ -23,8 +27,6 @@ class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
      * @var SessionFactory
      */
     private $sesionFactory;
-
-
     /**
      * OrderViewModel constructor.
      * @param SessionFactory $sessionFactory
@@ -35,7 +37,6 @@ class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
         $this->sesionFactory  =  $sessionFactory;
         $this->helperProduct = $data;
     }
-
     /**
      * @return \Magento\Catalog\Model\Product|null
      */
@@ -54,7 +55,6 @@ class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
         }
         return '';
     }
-
     /**
      * @return string
      */
@@ -65,7 +65,6 @@ class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
         }
         return '';
     }
-
     /**
      * @return string
      */
@@ -76,5 +75,15 @@ class OrderViewModel  implements ArgumentInterface , OrderViewModelInterface
         }
         return '';
     }
-
+    /**
+     * @return false|string
+     */
+    public function getCustomerData()
+    {
+        $data = array();
+        $data['name']  = $this->getName();
+        $data['phone'] = $this->getPhone();
+        $data['email'] = $this->getEmail();
+        return json_encode($data);
+    }
 }

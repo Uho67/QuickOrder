@@ -10,6 +10,10 @@ namespace MyModules\QuickOrder\Controller\Adminhtml\Status;
 
 use MyModules\QuickOrder\Controller\Adminhtml\MyBaseStatus;
 
+/**
+ * Class Listing
+ * @package MyModules\QuickOrder\Controller\Adminhtml\Status
+ */
 class Listing extends MyBaseStatus
 {
     const PAGE_TITLE        = 'Status Grid';

@@ -8,21 +8,18 @@
                     <input data-validate='{"required":true}' name="name" id="my_name" class="input-text" type="text" value="<?= $block->getName()?>"/>
                 </div>
             </div>
-
             <div class="field name required">
                 <label class="label"><span>Phone</span></label>
                 <div class="control">
                     <label><input name="phone" id="my_phone" class="input-text" type="text" value="<?= $block->getPhone()?>" /></label>
                 </div>
             </div>
-
             <div>
                 <label class="label"><span>Email </span></label>
                 <div class="control">
-                    <input data-validate='{"email2":true}' name="email" id="my_email" type="text" class="input-text" value="<?= $block->getEmail()?>" />
+                    <label><input data-validate='{"email2":true}' name="email" id="my_email" type="text" class="input-text" value="<?= $block->getEmail()?>" /></label>
                 </div>
             </div>
-
             <input type="hidden" name="sku" id="my_popup_sku">
             <input id='ajaxbutton' type="submit" value="Send">
         </fieldset>

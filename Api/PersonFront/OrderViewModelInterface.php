@@ -8,7 +8,6 @@
 
 namespace MyModules\QuickOrder\Api\PersonFront;
 
-
 interface OrderViewModelInterface
 {
     /**
@@ -19,15 +18,5 @@ interface OrderViewModelInterface
     /**
      * @return string
      */
-    public function getName();
-
-    /**
-     * @return string
-     */
-    public function getPhone();
-
-    /**
-     * @return string
-     */
-    public function getEmail();
+    public function getCustomerData();
 }

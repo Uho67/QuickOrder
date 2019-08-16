@@ -8,14 +8,10 @@ namespace MyModules\QuickOrder\Controller\Adminhtml\Orders;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor;
-
-
 use MyModules\QuickOrder\Api\Order\QuickOrderInterface;
-
 use MyModules\QuickOrder\Api\QuickOrdersRepositoryInterface as QuickOrdersRepository;
 
 /**
- * Cms page grid inline edit controller
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */

@@ -1,11 +1,9 @@
 <?php
 
-
 namespace MyModules\QuickOrder\Block\Adminhtml\Status;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
-
 use MyModules\QuickOrder\Api\StatusRepositoryInterface;
 
 class GenericButton

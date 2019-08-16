@@ -8,11 +8,9 @@
 
 namespace MyModules\QuickOrder\Api\Order;
 
-
 interface QuickOrderInterface
 {
     const TABLE_NAME                = 'my_quick_order_table';
-
     const ID_FIELD                  = 'order_id';
     const NAME_FIELD                = 'name';
     const SKU_FIELD                 = 'sku';
@@ -21,7 +19,6 @@ interface QuickOrderInterface
     const STATUS_FIELD              = 'status';
     const CREATE_FIELD              = 'create_data';
     const UPDATE_FIELD              = 'update_data';
-
     const CACHE_TAG                 = 'my_quick_order_table';
     const REGISTRY_KEY              = 'my_quick_order_table';
 
@@ -106,5 +103,4 @@ interface QuickOrderInterface
      * @return mixed
      */
     public function setUpdateData($data);
-
 }

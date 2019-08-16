@@ -12,7 +12,7 @@ namespace MyModules\QuickOrder\Api\Status;
 interface StatusSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface
 {
     /**
-     * Get Orsers list.
+     * Get StatusInterface list.
      *
      * @return \MyModules\QuickOrder\Api\Status\StatusInterface[]
      */
