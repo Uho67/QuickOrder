@@ -89,6 +89,12 @@ class InstallSchema implements InstallSchemaInterface
                      'default' => Table::TIMESTAMP_INIT_UPDATE,
                  ],
                  'update order'
+             )->addColumn(
+                 QuickOrderInterface::CUSTOMER_ID_FIELD,
+                 Table::TYPE_INTEGER,
+                 null,
+                 ['nullable' => false],
+                 'customer id'
              )->addIndex(
                  $setup->getIdxName(
                      $installer->getTable(QuickOrderInterface::TABLE_NAME),

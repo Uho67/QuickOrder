@@ -124,4 +124,22 @@ class QuickOrders extends \Magento\Framework\Model\AbstractModel implements \MyM
     {
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomerId()
+    {
+        return $this->getData(\MyModules\QuickOrder\Api\Order\QuickOrderInterface::CUSTOMER_ID_FIELD);
+    }
+
+    /**
+     * @param $id
+     * @return $this|mixed
+     */
+    public function setCustomerId($id)
+    {
+        $this->setData(\MyModules\QuickOrder\Api\Order\QuickOrderInterface::CUSTOMER_ID_FIELD, $id);
+        return $this;
+    }
 }

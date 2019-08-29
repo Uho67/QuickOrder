@@ -124,7 +124,7 @@ abstract class MyBaseQuickOrder extends Action
     {
         $resultPage = $this->_getResultPage();
         $resultPage->setActiveMenu(static::MENU_ITEM);
-        $resultPage->getConfig()->getTitle()->prepend((__(static::PAGE_TITLE)));
+        $resultPage->getConfig()->getTitle()->prepend((__(static ::PAGE_TITLE)));
         $resultPage->addBreadcrumb(__(static::BREADCRUMB_TITLE), __(static::BREADCRUMB_TITLE));
         $resultPage->addBreadcrumb(__(static::BREADCRUMB_TITLE), __(static::BREADCRUMB_TITLE));
         return $this;

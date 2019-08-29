@@ -1,0 +1,109 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">order_grid_listing.order_grid_listing_data_source</item>
+            <item name="deps" xsi:type="string">order_grid_listing.order_grid_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">order_grid_columns</item>
+    </argument>
+    <dataSource name="order_grid_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">MyModules\QuickOrder\DataProvider\FrontendGrid\FrontendGrid</argument>
+            <argument name="name" xsi:type="string">order_grid_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">order_id</argument>
+            <argument name="requestFieldName" xsi:type="string">order_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">order_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <columns name="order_grid_columns">
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Sku</item>
+                </item>
+            </argument>
+        </column>
+        <column name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                </item>
+            </argument>
+        </column>
+        <column name="phone">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="filter" xsi:type="string">text</item>
+                <item name="label" xsi:type="string" translate="true">Phone</item>
+            </item>
+        </argument>
+       </column>
+        <column name="status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">MyModules\QuickOrder\UI\Component\Listing\OrderColumn\StatusColumn</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="create_data" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="timezone" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="label" xsi:type="string" translate="true">Create order</item>
+                    <item name="dateFormat" xsi:type="string">YYYY MMM d HH:mm:ss</item>
+                </item>
+            </argument>
+        </column>
+        <column name="update_data" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="timezone" xsi:type="boolean">false</item>
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="label" xsi:type="string" translate="true">Update order</item>
+                    <item name="dateFormat" xsi:type="string">YYYY MMM d HH:mm:ss</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="MyModules\QuickOrder\UI\Component\FrontendAction\Action">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">order_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

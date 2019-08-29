@@ -59,7 +59,6 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
         }
         return $status;
     }
-
     /** {@inheritdoc} */
     public function deleteById($id)
     {
@@ -69,7 +68,6 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
         } catch (NoSuchEntityException $e) {
         }
     }
-
     /** {@inheritdoc} */
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria )
     {
@@ -81,7 +79,6 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
         $searchResults->setTotalCount($collection->getSize());
         return $searchResults;
     }
-
     /** {@inheritdoc} */
     public function save(\MyModules\QuickOrder\Api\Status\StatusInterface $status)
     {
@@ -92,7 +89,6 @@ class StatusRepository implements \MyModules\QuickOrder\Api\StatusRepositoryInte
         }
         return $status;
     }
-
     /** {@inheritdoc} */
     public function delete(\MyModules\QuickOrder\Api\Status\StatusInterface $status)
     {

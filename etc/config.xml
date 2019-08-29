@@ -4,7 +4,7 @@
     <default>
         <my_quick_orders>
             <general>
-                <default_status>2</default_status>
+                <default_status>3</default_status>
             </general>
         </my_quick_orders>
     </default>

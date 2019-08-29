@@ -15,6 +15,10 @@ use Magento\Framework\App\Action\Action as BaseAction;
 use Magento\Customer\Model\SessionFactory;
 use MyModules\QuickOrder\Model\QuickOrdersFactory;
 
+/**
+ * Class Save
+ * @package MyModules\QuickOrder\Controller\Save
+ */
 class Save extends BaseAction
 {
     /**
@@ -73,6 +77,9 @@ class Save extends BaseAction
                      $path = 'my_quick_orders/general/default_status';
                      $result = $this->scopeConfig->getValue($path, $storeTipe);
                      $formData['status'] = $result;
+                 }
+                 if ($this->sessionFactory->create()->getCustomerId()) {
+                     $formData['customer_id'] = $this->sessionFactory->create()->getCustomerId();
                  }
                  $model->setData($formData);
                  $this->ordersRepository->save($model);

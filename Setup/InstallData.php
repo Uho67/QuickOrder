@@ -59,6 +59,7 @@ class InstallData implements InstallDataInterface
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         $defaultStatus = ['Status was deleted',
+            'Order canсeled by customer',
             'Pending',
             'Approved',
             'Decline'];
@@ -74,7 +75,7 @@ class InstallData implements InstallDataInterface
             $order->setSku(sprintf('Sku %d', $i));
             $order->setEmail(sprintf('Email %d', $i));
             $order->setPhone(sprintf('Phone %d', $i));
-            $order->setStatus(2);
+            $order->setStatus(3);
             $transactionModel->addObject($order);
         }
         try {
